@@ -20,6 +20,13 @@ class App extends Component {
     }
 
     render() {
+        const style = {
+            border: "2px solid blue",
+            padding: "3px",
+            fontSize: "20px",
+            backgroundColor: "red"
+        }
+
         return (
             <div className="App">
                 <ol>
@@ -36,7 +43,7 @@ class App extends Component {
                 </ol>
                 <UserInput usernameHandler={this.usernameInputHandler} username_val={this.state.username}/>
                 {this.state.list_user}
-                <button onClick={this.handleDivOnClick} value="Click Me"/>
+                <button onClick={this.handleDivOnClick} style={style}>Click</button>
                 {this.state.showDiv && <div>
                     <UserOutput user={this.state.username} lis={this.state.list_user}/>
                     <UserOutput user={this.state.username} lis={this.state.list_user}/>
