@@ -6,11 +6,17 @@ import UserOutput from "./UserOutput/UserOutput"
 
 class App extends Component {
     state = {
-        username: "Aman"
+        list_user: [[3,4], [1,2]],
+        username: "Aman",
+        showDiv: true
     }
 
     usernameInputHandler = (val) => {
         this.setState({username: val})
+    }
+
+    handleDivOnClick = () => {
+        this.setState({showDiv: !this.state.showDiv})
     }
 
     render() {
@@ -29,9 +35,14 @@ class App extends Component {
                     <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
                 </ol>
                 <UserInput usernameHandler={this.usernameInputHandler} username_val={this.state.username}/>
-                <UserOutput user={this.state.username}/>
-                <UserOutput user={this.state.username}/>
-                <UserOutput user={this.state.username}/>
+                {this.state.list_user}
+                <button onClick={this.handleDivOnClick} value="Click Me"/>
+                {this.state.showDiv && <div>
+                    <UserOutput user={this.state.username} lis={this.state.list_user}/>
+                    <UserOutput user={this.state.username} lis={this.state.list_user}/>
+                    <UserOutput user={this.state.username} lis={this.state.list_user}/>
+                </div>}
+
             </div>
         );
     }
