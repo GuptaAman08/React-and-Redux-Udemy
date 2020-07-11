@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UserInput from "./UserInput/UserInput"
 import UserOutput from "./UserOutput/UserOutput"
+import Radium from "radium"
 
 
 class App extends Component {
@@ -24,7 +25,21 @@ class App extends Component {
             border: "2px solid blue",
             padding: "3px",
             fontSize: "20px",
-            backgroundColor: "red"
+            backgroundColor: "red",
+            ":hover": {
+                backgroundColor: "lightgreen",
+                color: "white"
+            }
+        }
+
+
+        let classes = []
+        if( this.state.username === "Aman"){
+            classes.push("red")
+            classes.push("bold")
+        }else{
+            classes.push("blue")
+            classes.push("bold")
         }
 
         return (
@@ -49,10 +64,10 @@ class App extends Component {
                     <UserOutput user={this.state.username} lis={this.state.list_user}/>
                     <UserOutput user={this.state.username} lis={this.state.list_user}/>
                 </div>}
-
+                <p className={classes.join(" ")}>CHANGE CLASSES DYNAMICALLY</p>
             </div>
         );
     }
 }
 
-export default App;
+export default Radium(App);
