@@ -1,3 +1,11 @@
 .App {
   margin: 16px;
 }
+
+.red {
+  color: green;
+}
+
+.bold {
+  font-weight: bold;
+}
